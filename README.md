@@ -87,7 +87,8 @@ WHERE comments LIKE '%CAUTION%';
 ````
 15. 
 ````
-SELECT AVG(creditLimit) FROM customers;   
+SELECT ROUND(AVG(creditLimit)) FROM customers
+WHERE country = 'USA';  
 ````
 16.
 ````
@@ -139,7 +140,7 @@ WHERE quantityInStock > 100 AND quantityInStock < 500;
 25.
 ````
 SELECT COUNT(*) FROM orders
-WHERE shippedDate BETWEEN '2004-06-01' AND '2004-09-01';
+WHERE shippedDate BETWEEN '2004-06-01' AND '2004-09-30' AND status = 'SHIPPED';
 ````
 ---
 ### Useful resources 
