@@ -142,7 +142,32 @@ WHERE quantityInStock > 100 AND quantityInStock < 500;
 SELECT COUNT(*) FROM orders
 WHERE shippedDate BETWEEN '2004-06-01' AND '2004-09-30' AND status = 'SHIPPED';
 ````
+26.
+````
+SELECT COUNT(customers.contactLastName) FROM customers
+INNER JOIN employees ON customers.contactLastName = employees.lastName;
+````
+27.
+````
+SELECT productCode FROM products
+ORDER BY MSRP DESC LIMIT 1;
+````
+28.
+````
+SELECT productCode FROM products
+WHERE MSRP - buyPrice = (SELECT MAX(MSRP-buyPrice) FROM products);
+````
+29.
+````
+SELECT ROUND(MAX(MSRP-buyPrice)) FROM products;
+````
+30.
+````
+SELECT productCode FROM products
+WHERE productCode NOT IN (SELECT productCode FROM orderdetails);
+````
 ---
 ### Useful resources 
 * https://www.w3schools.com/sql/sql_syntax.asp
 * https://www.techrepublic.com/article/sql-basics-select-statement-options/
+* https://www.w3schools.com/sql/sql_join.asp
