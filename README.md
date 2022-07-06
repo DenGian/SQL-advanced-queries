@@ -73,20 +73,76 @@ WHERE state = 'NV' OR state = 'NY' OR country != 'usa' AND creditLimit > 1000;
 ````
 12.
 ````
-   
+SELECT COUNT(customerNumber) FROM customers
+WHERE salesRepEmployeeNumber is null;   
 ````
 13.
 ````
-
+SELECT COUNT(comments) FROM orders;
 ````
 14. 
 ````
- 
+SELECT COUNT(orderNumber) FROM orders
+WHERE comments LIKE '%CAUTION%'; 
 ````
 15. 
 ````
-   
+SELECT AVG(creditLimit) FROM customers;   
+````
+16.
+````
+SELECT contactLastName, COUNT(contactLastName) FROM customers
+GROUP BY contactLastName
+HAVING COUNT(contactLastName)
+ORDER BY contactLastName DESC LIMIT 1;
+````
+17.
+````
+SELECT status FROM orders
+GROUP BY status;  
+````
+18.
+````
+SELECT country FROM customers
+GROUP BY country; 
+````
+19.
+````
+SELECT COUNT(*) FROM orders
+WHERE shippedDate IS NULL;
+````
+20.
+````
+SELECT COUNT(*) FROM customers
+WHERE salesRepEmployeeNumber = (SELECT employeeNumber FROM employees WHERE lastName='PATTERSON' AND firstName='STEVE')
+AND creditLimit > 100000;   
+````
+21.
+````
+SELECT COUNT(*) FROM orders
+WHERE shippedDate IS NOT NULL; 
+````
+22.
+````
+SELECT COUNT(*) FROM orders
+WHERE shippedDate IS NOT NULL; 
+````
+23.
+````
+SELECT COUNT(*) FROM orders
+WHERE shippedDate IS NOT NULL; 
+````
+24.
+````
+SELECT COUNT(*) FROM orders
+WHERE shippedDate IS NOT NULL; 
+````
+25.
+````
+SELECT COUNT(*) FROM orders
+WHERE shippedDate IS NOT NULL; 
 ````
 ---
 ### Useful resources 
 * https://www.w3schools.com/sql/sql_syntax.asp
+* https://www.techrepublic.com/article/sql-basics-select-statement-options/
