@@ -120,27 +120,26 @@ AND creditLimit > 100000;
 21.
 ````
 SELECT COUNT(*) FROM orders
-WHERE shippedDate IS NOT NULL; 
+WHERE status = 'SHIPPED';
 ````
 22.
 ````
-SELECT COUNT(*) FROM orders
-WHERE shippedDate IS NOT NULL; 
+SELECT ROUND((SELECT COUNT(*) FROM products) / (SELECT COUNT(*) FROM productlines));
 ````
 23.
 ````
-SELECT COUNT(*) FROM orders
-WHERE shippedDate IS NOT NULL; 
+SELECT COUNT(*) FROM products
+WHERE quantityInStock < 100;
 ````
 24.
 ````
-SELECT COUNT(*) FROM orders
-WHERE shippedDate IS NOT NULL; 
+SELECT COUNT(*) FROM products
+WHERE quantityInStock > 100 AND quantityInStock < 500;
 ````
 25.
 ````
 SELECT COUNT(*) FROM orders
-WHERE shippedDate IS NOT NULL; 
+WHERE shippedDate BETWEEN '2004-06-01' AND '2004-09-01';
 ````
 ---
 ### Useful resources 
